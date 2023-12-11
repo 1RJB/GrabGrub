@@ -15,6 +15,39 @@
         <a href="#dib">Dib Food</a> |
         <a href="#contact">Contact Us</a>
     </nav>
+    
+  <div class="product-filter" layout>
+    <h1 flex class="md-headline">Jackets</h1>
+    <div class="sort md-caption" layout>
+      <div class="collection-sort" layout="column">
+        <md-input-container>
+          <label>Filter by:</label>
+          <md-select ng-model="products.filterBy">
+            <md-option value="{{filter}}" ng-repeat="filter in products.availableFilters">{{filter}}</option>
+          </md-select>
+        </md-input-container>
+      </div>
+      <div class="collection-sort" layout="column">
+        <md-input-container>
+          <label>Sort by:</label>
+          <md-select ng-model="products.sortedBy">
+            <md-option value="{{sort}}" ng-repeat="sort in products.availableSorts">{{sort}}</option>
+          </md-select>
+        </md-input-container>
+      </div>
+    </div>
+  </div>
+
+  <section class="catalog" layout layout-wrap layout-align="center">
+    <md-card ng-repeat="it in products.catalog" flex="22" flex-sm="46" flex-xs="80" ng-class="{shaded:$mdMedia('xs') }">
+      <img src="{{it.imageURL}}"></img>
+      <md-card-footer-text layout="column">
+        <span class="md-title">{{it.title}} </span>
+        <span class="md-subhead">{{it.price}}</span>
+      </md-card-footer-text>
+    </md-card>
+  </section>
+
     <main>
         <section id="home">
             <!-- Home content goes here -->
